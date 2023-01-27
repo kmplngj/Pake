@@ -48,6 +48,7 @@ const DEFAULT_PAKE_OPTIONS = {
     resizable: true,
     transparent: false,
     debug: false,
+    multiArch: false,
 };
 
 const tlds = [
@@ -1795,7 +1796,7 @@ function handleOptions(options, url) {
 
 function shellExec(command) {
     return new Promise((resolve, reject) => {
-        shelljs.exec(command, { async: true, silent: false }, (code) => {
+        shelljs.exec(command, { async: true, silent: false, cwd: npmDirectory }, (code) => {
             if (code === 0) {
                 resolve(0);
             }
@@ -2016,10 +2017,23 @@ class MacBuilder {
             log.debug('PakeAppOptions', options);
             const { name } = options;
             yield mergeTauriConfig(url, options, tauriConf);
-            //这里直接使用 universal-apple-darwin 的打包，而非当前系统的包
-            yield shellExec(`cd ${npmDirectory} && npm install && npm run build:mac`);
-            const dmgName = `${name}_${tauriConf.package.version}_universal.dmg`;
-            const appPath = this.getBuildAppPath(npmDirectory, dmgName);
+            let dmgName;
+            if (options.multiArch) {
+                yield shellExec(`cd ${npmDirectory} && npm install && npm run build:mac`);
+                dmgName = `${name}_${tauriConf.package.version}_universal.dmg`;
+            }
+            else {
+                yield shellExec(`cd ${npmDirectory} && npm install && npm run build`);
+                let arch = "x64";
+                if (process.arch === "arm64") {
+                    arch = "aarch64";
+                }
+                else {
+                    arch = process.arch;
+                }
+                dmgName = `${name}_${tauriConf.package.version}_${arch}.dmg`;
+            }
+            const appPath = this.getBuildAppPath(npmDirectory, dmgName, options.multiArch);
             const distPath = path.resolve(`${name}.dmg`);
             yield fs.copyFile(appPath, distPath);
             yield fs.unlink(appPath);
@@ -2027,8 +2041,15 @@ class MacBuilder {
             logger.success('You can find the app installer in', distPath);
         });
     }
-    getBuildAppPath(npmDirectory, dmgName) {
-        return path.join(npmDirectory, 'src-tauri/target/universal-apple-darwin/release/bundle/dmg', dmgName);
+    getBuildAppPath(npmDirectory, dmgName, multiArch) {
+        let dmgPath;
+        if (multiArch) {
+            dmgPath = 'src-tauri/target/universal-apple-darwin/release/bundle/dmg';
+        }
+        else {
+            dmgPath = 'src-tauri/target/release/bundle/dmg';
+        }
+        return path.join(npmDirectory, dmgPath, dmgName);
     }
 }
 
@@ -2149,8 +2170,8 @@ class BuilderFactory {
 }
 
 var name = "pake-cli";
-var version = "1.2.2";
-var description = "🤱🏻 很简单的用 Rust 打包网页生成很小的桌面 App 🤱🏻 A simple way to make any web page a desktop application using Rust.";
+var version = "1.2.3";
+var description = "🤱🏻 Turn any webpage into a desktop app with Rust. 🤱🏻 很简单的用 Rust 打包网页生成很小的桌面 App。";
 var engines = {
 	node: ">=16.0.0"
 };
@@ -2252,18 +2273,19 @@ function checkUpdateTips() {
     });
 }
 
-program.version(packageJson.version).description('A cli application can package a web page to desktop application.');
+program.version(packageJson.version).description('A cli application can turn any webpage into a desktop app with Rust.');
 program
     .showHelpAfterError()
     .argument('[url]', 'the web url you want to package', validateUrlInput)
-    .option('--name <string>', 'application name')
-    .option('--icon <string>', 'application icon', DEFAULT_PAKE_OPTIONS.icon)
-    .option('--height <number>', 'window height', validateNumberInput, DEFAULT_PAKE_OPTIONS.height)
-    .option('--width <number>', 'window width', validateNumberInput, DEFAULT_PAKE_OPTIONS.width)
-    .option('--no-resizable', 'whether the window can be resizable', DEFAULT_PAKE_OPTIONS.resizable)
-    .option('--fullscreen', 'makes the packaged app start in full screen', DEFAULT_PAKE_OPTIONS.fullscreen)
-    .option('--transparent', 'transparent title bar', DEFAULT_PAKE_OPTIONS.transparent)
-    .option('--debug', 'debug', DEFAULT_PAKE_OPTIONS.transparent)
+    .option('-n, --name <string>', 'application name')
+    .option('-i, --icon <string>', 'application icon', DEFAULT_PAKE_OPTIONS.icon)
+    .option('-w, --width <number>', 'window width', validateNumberInput, DEFAULT_PAKE_OPTIONS.width)
+    .option('-h, --height <number>', 'window height', validateNumberInput, DEFAULT_PAKE_OPTIONS.height)
+    .option('-f, --fullscreen', 'makes the packaged app start in full screen', DEFAULT_PAKE_OPTIONS.fullscreen)
+    .option('-t, --transparent', 'transparent title bar', DEFAULT_PAKE_OPTIONS.transparent)
+    .option('-r, --no-resizable', 'whether the window can be resizable', DEFAULT_PAKE_OPTIONS.resizable)
+    .option('-d, --debug', 'debug', DEFAULT_PAKE_OPTIONS.debug)
+    .option('-m, --multi-arch', "Supports both Intel and m1 chips, only for Mac.", DEFAULT_PAKE_OPTIONS.multiArch)
     .action((url, options) => __awaiter(void 0, void 0, void 0, function* () {
     yield checkUpdateTips();
     if (!url) {

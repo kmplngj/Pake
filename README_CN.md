@@ -6,7 +6,7 @@
 <p align="center"><strong>很简单的用 Rust 打包网页生成很小的桌面App</strong></p>
 <div align="center">
     <a href="https://twitter.com/HiTw93" target="_blank">
-    <img alt="twitter" src="https://img.shields.io/twitter/follow/Hitw93?color=%231D9BF0&label=Pake%20%F0%9F%93%A2%20&logo=Twitter&style=flat-square"></a>
+    <img alt="twitter" src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter"></a>
     <a href="https://t.me/miaoyan" target="_blank">
     <img alt="telegram" src="https://img.shields.io/badge/chat-telegram-blueviolet?style=flat-square&logo=Telegram"></a>
     <a href="https://github.com/tw93/Pake/releases" target="_blank">
@@ -20,21 +20,21 @@
 
 ## 特征
 
-🏂 **小**：相比传统的 Electron 套壳打包，要小将近 40 倍，不到 3M。  
-😂 **快**：Pake 的底层使用的 Rust Tauri 框架，性能体验较 JS 框架要轻快不少，内存小很多。  
-🩴 **特**：不是单纯打包，实现了快捷键的透传、沉浸式的窗口、拖动、样式改写、去广告、产品的极简风格定制。  
-🐶 **玩**：只是一个很简单的小玩具，用 Rust 替代之前套壳网页打包的老思路，其实 PWA 也很好。
+- 🎐 相比传统的 Electron 套壳打包，要小将近 40 倍，不到 3M。
+- 🚀 Pake 的底层使用的 Rust Tauri 框架，性能体验较 JS 框架要轻快不少，内存小很多。
+- 📦 不是单纯打包，实现了快捷键的透传、沉浸式的窗口、拖动、样式改写、去广告、产品的极简风格定制。
+- 👻 只是一个很简单的小玩具，用 Rust 替代之前套壳网页打包的老思路，其实 PWA 也很好。
 
 ## 常用包下载
 
 <table>
     <tr>
-        <td>WeRead 
+        <td>WeRead
             <a href="https://github.com/tw93/Pake/releases/latest/download/WeRead.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/WeRead_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/WeRead_amd64.deb">Linux</a>
         </td>
-        <td>Twitter 
+        <td>Twitter
             <a href="https://github.com/tw93/Pake/releases/latest/download/Twitter.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/Twitter_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/Twitter_amd64.deb">Linux</a>
@@ -45,12 +45,12 @@
         <td><img src=https://cdn.fliggy.com/upic/mc41xq.jpg width=600/></td>
     </tr>
     <tr>
-        <td>LiZhi 
+        <td>LiZhi
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_amd64.deb">Linux</a>
         </td>
-         <td>YouTube 
+         <td>YouTube
             <a href="https://github.com/tw93/Pake/releases/latest/download/YouTube.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/YouTube_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/YouTube_amd64.deb">Linux</a>
@@ -61,35 +61,35 @@
         <td><img src=https://cdn.fliggy.com/upic/Ea5ZRw.png width=600/></td>
     </tr>
     <tr>
-        <td>Qwerty 
-            <a href="https://github.com/tw93/Pake/releases/latest/download/Qwerty.dmg">Mac</a>
-            <a href="https://github.com/tw93/Pake/releases/latest/download/Qwerty_x64.msi">Windows</a>
-            <a href="https://github.com/tw93/Pake/releases/latest/download/Qwerty_amd64.deb">Linux</a>
-        </td>
-         <td>Reference 
-            <a href="https://github.com/tw93/Pake/releases/latest/download/Reference.dmg">Mac</a>
-            <a href="https://github.com/tw93/Pake/releases/latest/download/Reference_x64.msi">Windows</a>
-            <a href="https://github.com/tw93/Pake/releases/latest/download/Reference_amd64.deb">Linux</a>
-        </td>
-    </tr>
-    <tr>
-        <td><img src=https://cdn.fliggy.com/upic/CJjagn.jpg width=600/></td>
-        <td><img src=https://cdn.fliggy.com/upic/KFsZIY.png width=600/></td>
-    </tr>
-        <tr>
-           <td>Library  
+       <td>Book
             <a href="https://github.com/tw93/Pake/releases/latest/download/ZLibrary.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/ZLibrary_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/ZLibrary_amd64.deb">Linux</a>
         </td>
-        <td>ChatGPT 
+        <td>Qwerty
+            <a href="https://github.com/tw93/Pake/releases/latest/download/Qwerty.dmg">Mac</a>
+            <a href="https://github.com/tw93/Pake/releases/latest/download/Qwerty_x64.msi">Windows</a>
+            <a href="https://github.com/tw93/Pake/releases/latest/download/Qwerty_amd64.deb">Linux</a>
+        </td>
+    </tr>
+    <tr>
+        <td><img src=https://cdn.fliggy.com/upic/lJiTRc.jpg width=600/></td>
+        <td><img src=https://cdn.fliggy.com/upic/KFsZIY.png width=600/></td>
+    </tr>
+    <tr>
+      <td>Reference
+            <a href="https://github.com/tw93/Pake/releases/latest/download/Reference.dmg">Mac</a>
+            <a href="https://github.com/tw93/Pake/releases/latest/download/Reference_x64.msi">Windows</a>
+            <a href="https://github.com/tw93/Pake/releases/latest/download/Reference_amd64.deb">Linux</a>
+        </td>
+        <td>ChatGPT
             <a href="https://github.com/tw93/Pake/releases/latest/download/ChatGPT.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/ChatGPT_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/ChatGPT_amd64.deb">Linux</a>
         </td>
     </tr>
     <tr>
-        <td><img src=https://cdn.fliggy.com/upic/2vPptL.png width=600/></td>
+        <td><img src=https://cdn.fliggy.com/upic/CJjagn.jpg width=600/></td>
         <td><img src=https://cdn.fliggy.com/upic/sfnTXf.png width=600/></td>
     </tr>
 </table>
@@ -133,13 +133,13 @@
 **Pake 提供了命令行工具，可以更快捷方便地一键自定义打你需要的包，详细可见 [文档](./bin/README.md)。**
 
 ```bash
-// 使用 npm 进行安装
+# 使用 npm 进行安装
 npm install -g pake-cli
 
-// 命令使用
-pake url [options]
+# 命令使用
+pake url [OPTIONS]...
 
-// 随便玩玩，首次由于安装环境会有些慢，后面就快了
+# 随便玩玩，首次由于安装环境会有些慢，后面就快了
 pake https://weekly.tw93.fun --name Weekly --transparent
 ```
 
@@ -150,16 +150,16 @@ pake https://weekly.tw93.fun --name Weekly --transparent
 开始前请确保电脑已经安装了 Rust `>=1.63` 和 Node `>=16 如 16.18.1` 的环境，此外需参考 [Tauri 文档](https://tauri.app/v1/guides/getting-started/prerequisites) 快速配置好环境才可以开始使用，假如你太不懂，使用上面的命令行打包会更加合适。
 
 ```sh
-// 安装依赖
+# 安装依赖
 npm i
 
-// 本地开发
+# 本地开发
 npm run dev
 
-// 本地调试
+# 本地调试
 npm run dev:debug
 
-// 打包应用
+# 打包应用
 npm run build
 
 ```
@@ -304,7 +304,7 @@ Pake 的发展离不开这些 Hacker 们，一起贡献了大量能力，也欢�
 
 ## 支持
 
-1. 我有两只猫，一只叫汤圆，一只叫可乐，假如觉得 Pake 让你生活更美好，可以给汤圆可乐 <a href="https://miaoyan.app/cats.html?name=Pake" target="_blank">喂罐头 🥩🍤</a>。
+1. 我有两只猫，一只叫汤圆，一只叫可乐，假如觉得 Pake 让你生活更美好，可以给汤圆可乐 <a href="https://miaoyan.app/cats.html?name=Pake" target="_blank">喂罐头 🥩</a>。
 2. 如果你喜欢 Pake，可以在 Github Star，更欢迎 [推荐](https://twitter.com/intent/tweet?url=https://github.com/tw93/Pake&text=%23Pake%20%E4%B8%80%E4%B8%AA%E5%BE%88%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%20Rust%20%E6%89%93%E5%8C%85%E7%BD%91%E9%A1%B5%E7%94%9F%E6%88%90%20Mac%20App%20%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%8C%E7%9B%B8%E6%AF%94%E4%BC%A0%E7%BB%9F%E7%9A%84%20Electron%20%E5%A5%97%E5%A3%B3%E6%89%93%E5%8C%85%EF%BC%8C%E5%A4%A7%E5%B0%8F%E8%A6%81%E5%B0%8F%E5%B0%86%E8%BF%91%2040%20%E5%80%8D%EF%BC%8C%E4%B8%80%E8%88%AC%202M%20%E5%B7%A6%E5%8F%B3%EF%BC%8C%E5%BA%95%E5%B1%82%E4%BD%BF%E7%94%A8Tauri%20%EF%BC%8C%E6%80%A7%E8%83%BD%E4%BD%93%E9%AA%8C%E8%BE%83%20JS%20%E6%A1%86%E6%9E%B6%E8%A6%81%E8%BD%BB%E5%BF%AB%E4%B8%8D%E5%B0%91%EF%BC%8C%E5%86%85%E5%AD%98%E5%B0%8F%E5%BE%88%E5%A4%9A%EF%BC%8C%E6%94%AF%E6%8C%81%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E3%80%81Twitter%E3%80%81Youtube%E3%80%81RunCode%E3%80%81Flomo%E3%80%81%E8%AF%AD%E9%9B%80%E7%AD%89%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%BE%88%E6%96%B9%E4%BE%BF%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91~) 给你志同道合的朋友使用。
 3. 可以关注我的 [Twitter](https://twitter.com/HiTw93) 获取到最新的 Pake 更新消息，也欢迎加入 [Telegram](https://t.me/miaoyan) 聊天群。
 4. 希望大伙玩的过程中有一种学习新技术的喜悦感，假如你发现有很适合做成桌面 App 的网页也很欢迎告诉我。

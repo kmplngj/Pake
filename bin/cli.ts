@@ -9,19 +9,20 @@ import { checkUpdateTips } from './helpers/updater.js';
 // @ts-expect-error
 import packageJson from '../package.json';
 
-program.version(packageJson.version).description('A cli application can package a web page to desktop application.');
+program.version(packageJson.version).description('A cli application can turn any webpage into a desktop app with Rust.');
 
 program
   .showHelpAfterError()
   .argument('[url]', 'the web url you want to package', validateUrlInput)
-  .option('--name <string>', 'application name')
-  .option('--icon <string>', 'application icon', DEFAULT_PAKE_OPTIONS.icon)
-  .option('--height <number>', 'window height', validateNumberInput, DEFAULT_PAKE_OPTIONS.height)
-  .option('--width <number>', 'window width', validateNumberInput, DEFAULT_PAKE_OPTIONS.width)
-  .option('--no-resizable', 'whether the window can be resizable', DEFAULT_PAKE_OPTIONS.resizable)
-  .option('--fullscreen', 'makes the packaged app start in full screen', DEFAULT_PAKE_OPTIONS.fullscreen)
-  .option('--transparent', 'transparent title bar', DEFAULT_PAKE_OPTIONS.transparent)
-  .option('--debug', 'debug', DEFAULT_PAKE_OPTIONS.transparent)
+  .option('-n, --name <string>', 'application name')
+  .option('-i, --icon <string>', 'application icon', DEFAULT_PAKE_OPTIONS.icon)
+  .option('-w, --width <number>', 'window width', validateNumberInput, DEFAULT_PAKE_OPTIONS.width)
+  .option('-h, --height <number>', 'window height', validateNumberInput, DEFAULT_PAKE_OPTIONS.height)
+  .option('-f, --fullscreen', 'makes the packaged app start in full screen', DEFAULT_PAKE_OPTIONS.fullscreen)
+  .option('-t, --transparent', 'transparent title bar', DEFAULT_PAKE_OPTIONS.transparent)
+  .option('-r, --no-resizable', 'whether the window can be resizable', DEFAULT_PAKE_OPTIONS.resizable)
+  .option('-d, --debug', 'debug', DEFAULT_PAKE_OPTIONS.debug)
+  .option('-m, --multi-arch', "Supports both Intel and m1 chips, only for Mac.", DEFAULT_PAKE_OPTIONS.multiArch)
   .action(async (url: string, options: PakeCliOptions) => {
 
     await checkUpdateTips();

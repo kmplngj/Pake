@@ -43,7 +43,8 @@ pake url [options]
 
 打包完成后的应用程序默认为当前工作目录，首次打包由于需配置好环境，需要一些时间，请耐心等待即可。
 
-Note: 打包需要用 `Rust` 环境，如果没有 `Rust`，会提示确认安装。如遇安装失败或超时，可[自行安装](https://www.rust-lang.org/tools/install)。
+> **Note**:
+> 打包需要用 `Rust` 环境，如果没有 `Rust`，会提示确认安装。如遇安装失败或超时，可[自行安装](https://www.rust-lang.org/tools/install)。
 
 ### url
 
@@ -59,6 +60,8 @@ url 为你需要打包的网页链接 🔗，必须提供。
 
 ```shell
 --name <value>
+# 或者
+-n <value>
 ```
 
 #### [icon]
@@ -71,6 +74,8 @@ url 为你需要打包的网页链接 🔗，必须提供。
 
 ```shell
 --icon <path>
+# 或者
+-i <path>
 ```
 
 #### [height]
@@ -79,6 +84,8 @@ url 为你需要打包的网页链接 🔗，必须提供。
 
 ```shell
 --height <number>
+# 或者
+-h <number>
 ```
 
 #### [width]
@@ -87,28 +94,63 @@ url 为你需要打包的网页链接 🔗，必须提供。
 
 ```shell
 --width <number>
+# 或者
+-w <number>
 ```
 
 #### [transparent]
 
-是否开启沉浸式头部，默认为 `false` 不开启。
+是否开启沉浸式头部，默认为 `false` 不开启。使用下面的命令来开启该功能。
 
 ```shell
 --transparent
-```
-
-#### [resize]
-
-是否可以拖动大小，默认为 `true` 可拖动。
-
-```shell
---no-resizable
+# 或者
+-t
 ```
 
 #### [fullscreen]
 
-打开应用后是否开启全屏，默认为 `false`。
+打开应用后是否开启全屏，默认为 `false`，使用下面的命令开启该功能。
 
 ```shell
---fullscreen <value>
+--fullscreen
+# 或者
+-f
+```
+
+#### [resize]
+
+是否可以拖动大小，默认为 `true` 可拖动。使用下面的命令来关闭该功能。
+
+```shell
+--no-resizable
+# 或者
+-r
+```
+
+#### [multi-arch]
+
+打包结果同时支持英特尔和 m1 芯片，仅适用于 MacOS，默认为 `false`。
+
+##### 准备工作
+
+- 注意：开启该选项后，需要用 rust 官网的 rustup 安装 rust，不支持 brew 安装。
+- 对于 intel 芯片用户，需要安装 arm64 跨平台包，使安装包支持 m1 芯片，使用下面命令安装。
+
+```shell
+rustup target add aarch64-apple-darwin
+```
+
+- 对于 M1 芯片用户，需要安装 x86 跨平台包，使安装包支持 interl 芯片，使用下面的命令安装。
+
+```shell
+rustup target add x86_64-apple-darwin
+```
+
+##### 使用方法
+
+```shell
+--multi-arch
+# 或者
+-m
 ```
